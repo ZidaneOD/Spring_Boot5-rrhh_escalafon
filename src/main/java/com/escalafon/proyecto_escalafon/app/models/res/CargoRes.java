@@ -1,4 +1,4 @@
-package com.escalafon.proyecto_escalafon.app.models.Res;
+package com.escalafon.proyecto_escalafon.app.models.res;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonProperty;

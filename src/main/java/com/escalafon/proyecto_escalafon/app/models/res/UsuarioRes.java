@@ -1,4 +1,4 @@
-package com.escalafon.proyecto_escalafon.app.models.Res;
+package com.escalafon.proyecto_escalafon.app.models.res;
 
 import com.escalafon.proyecto_escalafon.app.models.entity.Cargo;
 import com.fasterxml.jackson.annotation.JsonInclude;

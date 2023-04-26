@@ -1,6 +1,6 @@
 package com.escalafon.proyecto_escalafon.app.models.services;
 
-import com.escalafon.proyecto_escalafon.app.models.Res.UsuarioRes;
+import com.escalafon.proyecto_escalafon.app.models.res.UsuarioRes;
 import com.escalafon.proyecto_escalafon.app.models.dao.IUsuarioDao;
 import com.escalafon.proyecto_escalafon.app.models.entity.Usuario;
 import lombok.NonNull;

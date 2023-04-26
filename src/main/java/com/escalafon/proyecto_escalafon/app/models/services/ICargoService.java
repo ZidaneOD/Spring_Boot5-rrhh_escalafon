@@ -1,7 +1,5 @@
 package com.escalafon.proyecto_escalafon.app.models.services;
-import com.escalafon.proyecto_escalafon.app.models.Res.CargoRes;
-import com.escalafon.proyecto_escalafon.app.models.Res.UsuarioRes;
-import com.escalafon.proyecto_escalafon.app.models.entity.Cargo;
+import com.escalafon.proyecto_escalafon.app.models.res.CargoRes;
 import lombok.NonNull;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.escalafon.proyecto_escalafon.app.models.services;
 
-import com.escalafon.proyecto_escalafon.app.models.Res.CargoRes;
+import com.escalafon.proyecto_escalafon.app.models.res.CargoRes;
 import com.escalafon.proyecto_escalafon.app.models.entity.Cargo;
 import com.escalafon.proyecto_escalafon.app.models.dao.ICargoDao;
 import lombok.NonNull;
