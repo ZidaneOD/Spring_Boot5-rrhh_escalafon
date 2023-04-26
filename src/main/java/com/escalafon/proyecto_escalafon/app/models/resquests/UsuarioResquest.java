@@ -27,5 +27,5 @@ public class UsuarioResquest {
     @JsonProperty("pass")
     private String pass;
     @JsonProperty("cargo")
-    private CargoEntity cargoResquest;
+    private CargoEntity cargoEntity;
 }

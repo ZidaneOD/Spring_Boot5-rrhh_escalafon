@@ -12,4 +12,6 @@ public class CargoResquest {
     private Integer idCargo;
     @JsonProperty("tipoCargo")
     private String tipoCargo;
+    @JsonProperty("estado")
+    private String estado;
 }

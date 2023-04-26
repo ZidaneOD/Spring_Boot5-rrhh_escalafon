@@ -46,6 +46,10 @@ public class IUsuarioServiceImp implements IUsuarioService {
             usuarioEntity.setCargoEntity(cargoEntity);
             usuarioEntity.setEstado(true);
 
+            Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+            String hash = argon2.hash(1, 1024, 1, usuarioEntity.getPass());
+            usuarioEntity.setPass(hash);
+
             UsuarioEntity savedUsuario = usuarioDao.save(usuarioEntity);
             return convertToResquest(savedUsuario);
         } catch (Exception e) {
@@ -62,6 +66,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
     }
 
 
+    @Override
     @Transactional(readOnly = true)
     public UsuarioResquest obtnerUsuarioXcredenciales(UsuarioResquest usuarioResquest) {
 
@@ -74,7 +79,8 @@ public class IUsuarioServiceImp implements IUsuarioService {
         String passwordHashed = usuarioEntity.getPass();
 
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        if(argon2.verify(passwordHashed, usuarioEntity.getPass())){
+
+        if(argon2.verify(passwordHashed, usuarioResquest.getPass())){
             return convertToResquest(usuarioEntity);
         }
         return null;
@@ -96,7 +102,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
             usuarioEntity.setLogin(usuarioResquest.getLogin());
             usuarioEntity.setPass(usuarioResquest.getPass());
 
-            CargoEntity cargoEntity = cargoDao.findById(usuarioResquest.getCargoResquest().getId()).orElseThrow();
+            CargoEntity cargoEntity = cargoDao.findById(usuarioResquest.getCargoEntity().getId()).orElseThrow();
 
             usuarioEntity.setCargoEntity(cargoEntity);
 

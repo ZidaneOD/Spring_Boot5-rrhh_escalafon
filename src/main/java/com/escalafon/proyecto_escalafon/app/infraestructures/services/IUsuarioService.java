@@ -15,5 +15,6 @@ public interface IUsuarioService {
     public UsuarioResquest updateUsuario(@NonNull Integer id, @NonNull UsuarioResquest usuarioResquest);
 
     public UsuarioResquest delete(@NonNull Integer id);
+    public UsuarioResquest obtnerUsuarioXcredenciales(UsuarioResquest usuarioResquest);
 
 }
