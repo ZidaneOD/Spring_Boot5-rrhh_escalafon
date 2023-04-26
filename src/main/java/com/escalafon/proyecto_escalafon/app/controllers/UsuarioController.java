@@ -1,19 +1,18 @@
 package com.escalafon.proyecto_escalafon.app.controllers;
 
-import com.escalafon.proyecto_escalafon.app.models.Res.UsuarioRes;
-import com.escalafon.proyecto_escalafon.app.models.Responses.Response;
-import com.escalafon.proyecto_escalafon.app.models.services.IUsuarioService;
+import com.escalafon.proyecto_escalafon.app.models.resquests.UsuarioResquest;
+import com.escalafon.proyecto_escalafon.app.models.responses.Response;
+import com.escalafon.proyecto_escalafon.app.infraestructures.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 @SessionAttributes("usuario")
 @RequestMapping(path = "api/usuario")
 public class UsuarioController {
@@ -22,30 +21,32 @@ public class UsuarioController {
     private IUsuarioService usuarioService;
 
     @GetMapping
-    public Response<List<UsuarioRes>> getUsuarios() {
-        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "USUARIO SUCCESSFULLY READED",
+    public Response<List<UsuarioResquest>> getUsuarios() {
+        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "CARGO SUCCESSFULLY READED",
                 usuarioService.findAll());
     }
     @GetMapping(value = "/{id}")
-    public Response<UsuarioRes> getUsuarioById(@PathVariable Integer id) {
-        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "USUARIO ID: " + id + " SUCCESSFULLY READED",
+    public Response<UsuarioResquest> getUsuarioById(@PathVariable Integer id) {
+        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "CARGO ID: " + id + " SUCCESSFULLY READED",
                 usuarioService.findOne(id));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<UsuarioRes> saveUsuario(@Valid @RequestBody UsuarioRes usuario) {
-        return new Response<>("SUCCESS", String.valueOf(HttpStatus.CREATED), "DOCTOR SUCCESSFULLY SAVED",
+    public Response<UsuarioResquest> saveUsuario(@Valid @RequestBody UsuarioResquest usuario) {
+        return new Response<>("SUCCESS", String.valueOf(HttpStatus.CREATED), "CARGO SUCCESSFULLY SAVED",
                 usuarioService.save(usuario));
     }
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<UsuarioRes> updateDoctor(@PathVariable Integer id, @Valid @RequestBody UsuarioRes usuarioRes){
-        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "USUARIO ID: "+id+" SUCCESSFULLY UPDATED",
-                usuarioService.updateUsuario(id, usuarioRes));
+    public Response<UsuarioResquest> updateDoctor(@PathVariable Integer id, @Valid @RequestBody UsuarioResquest usuarioResquest){
+        return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "CARGO ID: "+id+" SUCCESSFULLY UPDATED",
+                usuarioService.updateUsuario(id, usuarioResquest));
     }
     @DeleteMapping(value = "/{id}")
     public Response<String> deleteUsuarioById(@PathVariable Integer id){
         usuarioService.delete(id);
         return new Response<>("DELETED", String.valueOf(HttpStatus.NO_CONTENT), "USUARIO ID: "+id+" SUCCESSFULLY DELETED");
     }
+
+
 
 }

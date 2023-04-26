@@ -1,4 +1,4 @@
-package com.escalafon.proyecto_escalafon.app.models.Responses;
+package com.escalafon.proyecto_escalafon.app.models.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

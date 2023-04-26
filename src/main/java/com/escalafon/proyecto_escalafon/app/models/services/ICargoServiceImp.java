@@ -3,7 +3,6 @@ package com.escalafon.proyecto_escalafon.app.models.services;
 import com.escalafon.proyecto_escalafon.app.models.Res.CargoRes;
 import com.escalafon.proyecto_escalafon.app.models.entity.Cargo;
 import com.escalafon.proyecto_escalafon.app.models.dao.ICargoDao;
-import com.escalafon.proyecto_escalafon.app.models.entity.Usuario;
 import lombok.NonNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
