@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping(path = "api/usuario")
 public class UsuarioController {
     @Autowired
+    @Qualifier(value = "IUsuarioServiceImp")
     private IUsuarioService usuarioService;
 
     @GetMapping
