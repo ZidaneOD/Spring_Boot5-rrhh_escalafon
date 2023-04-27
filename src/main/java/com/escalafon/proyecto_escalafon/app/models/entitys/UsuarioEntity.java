@@ -41,6 +41,7 @@ public class UsuarioEntity implements Serializable {
     @NotEmpty
     private String pass;
     private boolean estado;
+    private boolean pruebaramas;
     @OneToOne
     @JoinColumn(name = "id_cargo")
     private CargoEntity cargoEntity;
