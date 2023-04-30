@@ -25,8 +25,8 @@ public class FacultadEntity implements Serializable {
     private String nombreFacultad;
     @NonNull
     private Boolean estado;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_facultad")
+
+    @OneToMany(fetch = FetchType.LAZY ,mappedBy = "facultad")
     private List<EscuelaEntity> escuelaEntityList;
     private static final long serialVersionUID = 1L;
 }
