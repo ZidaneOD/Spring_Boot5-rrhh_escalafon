@@ -1,5 +1,7 @@
 package com.escalafon.proyecto_escalafon.app.models.entitys;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
@@ -11,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "cargopersona")
 @Setter @Getter
-public class CargoPersonaEntity {
+public class CargoPersonaEntity implements Serializable{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_cargopersona",nullable = false)
     private Integer idEstadoPersona;
     @NotEmpty
@@ -20,5 +22,5 @@ public class CargoPersonaEntity {
     private String cargoPersona;
     @NotNull
     private Boolean estado;
-    
+    private static final long serialVersionUID=1L;
 }
