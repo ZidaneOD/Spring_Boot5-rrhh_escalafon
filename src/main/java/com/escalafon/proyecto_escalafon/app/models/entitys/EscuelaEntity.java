@@ -22,7 +22,7 @@ public class EscuelaEntity implements Serializable {
     @NotNull
     private Boolean estado;
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_facultad")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_facultad",referencedColumnName = "id_facultad")
     private FacultadEntity facultad;
 }
