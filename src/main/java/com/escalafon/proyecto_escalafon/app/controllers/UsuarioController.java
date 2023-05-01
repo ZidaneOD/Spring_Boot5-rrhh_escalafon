@@ -47,6 +47,4 @@ public class UsuarioController {
         return new Response<>("DELETED", String.valueOf(HttpStatus.NO_CONTENT), "USUARIO ID: "+id+" SUCCESSFULLY DELETED");
     }
 
-
-
 }
