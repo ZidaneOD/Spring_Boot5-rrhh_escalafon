@@ -5,11 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
+
 @Entity
-@Table(name = "provincia")
+@Table(name = "provincias")
 @Getter
 @Setter
 public class ProvinciaEntity implements Serializable {
@@ -19,20 +20,16 @@ public class ProvinciaEntity implements Serializable {
     @Column(name = "id_provincia", nullable = false)
     private Integer idProvincia;
 
+    @NotEmpty
     @Max(150)
-    @Column(name = "nombre_provincia",length = 150)
+    @Column(name = "nombre_provincia", length = 150)
     private String nombreProvincia;
 
     @NotNull
     private Boolean estado;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_provincia")
-    private List<DistritoEntity> distritolist;
-    //Eazy - por partes
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_departamento")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
     private DepartamentoEntity departamento;
 
 }

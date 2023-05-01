@@ -5,10 +5,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import java.io.Serializable;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "distrito")
+@Table(name = "distritos")
 @Getter @Setter
 public class DistritoEntity implements Serializable {
     @Id
@@ -16,6 +17,7 @@ public class DistritoEntity implements Serializable {
     @Column(name = "id_distrito", nullable = false)
     private Integer idDistrito;
 
+    @NotEmpty
     @Max(150)
     @Column(name = "nombre_distrito",length = 150)
     private String nombreDistrito;
@@ -24,7 +26,7 @@ public class DistritoEntity implements Serializable {
     private Boolean estado;
 
     @NotNull
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_provincia")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_provincia", referencedColumnName = "id_provincia")
     private ProvinciaEntity provincia;
 }

@@ -43,7 +43,7 @@ public class UsuarioEntity implements Serializable {
     private boolean estado;
     private boolean pruebaramas;
     @OneToOne
-    @JoinColumn(name = "id_cargo")
+    @JoinColumn(name = "id_cargo", referencedColumnName = "id_cargo")
     private CargoEntity cargoEntity;
 
     private static final long serialVersionUID = 1L;
