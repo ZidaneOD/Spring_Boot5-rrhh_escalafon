@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "cargopersona")
+@Table(name = "cargopersonas")
 @Setter @Getter
 public class CargoPersonaEntity implements Serializable{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_cargopersona",nullable = false)

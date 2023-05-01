@@ -25,6 +25,14 @@ public class RegimenPensionEntity implements Serializable{
     private String nombreRegimen;
     @NonNull
     private Boolean estado;
+    //El error fue la relación de huayta,
+    //seria así
+    /*
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "id_afp",referencedColumnName = "id_afp")
+    private AfpEntity afps;
+    */
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_regimen")
     private List<AfpEntity> afpEntityList;

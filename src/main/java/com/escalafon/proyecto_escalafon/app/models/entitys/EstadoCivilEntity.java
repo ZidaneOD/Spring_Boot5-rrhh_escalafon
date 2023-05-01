@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "estadocivil")
+@Table(name = "estadociviles")
 @Setter @Getter
 public class EstadoCivilEntity implements Serializable{
 

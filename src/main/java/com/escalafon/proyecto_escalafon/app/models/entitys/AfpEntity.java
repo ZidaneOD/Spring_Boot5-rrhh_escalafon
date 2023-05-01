@@ -1,6 +1,7 @@
 package com.escalafon.proyecto_escalafon.app.models.entitys;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -11,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "afp")
+@Table(name = "afps")
 @Getter @Setter
 public class AfpEntity implements Serializable{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_afp",nullable = false)
@@ -22,8 +23,14 @@ public class AfpEntity implements Serializable{
     private String nombreAFP;
     @NotNull
     private Boolean estado;
+
+    /* Asi seria
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "afps")
+    private List<RegimenPensionEntity> regimenPensionEntityList;
+    */
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_regimen")
     private RegimenPensionEntity regimenPensiones;
+
 }
