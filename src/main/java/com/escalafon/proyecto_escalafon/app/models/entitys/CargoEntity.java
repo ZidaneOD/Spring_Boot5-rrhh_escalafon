@@ -21,6 +21,7 @@ public class CargoEntity implements Serializable {
     @NotEmpty
     @Column(name = "tipo_cargo")
     private String tipoCargo;
+    private boolean estado;
 
     private static final long serialVersionUID = 1L;
 }
