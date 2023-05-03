@@ -1,7 +1,7 @@
 package com.escalafon.proyecto_escalafon.app.models.entitys;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
