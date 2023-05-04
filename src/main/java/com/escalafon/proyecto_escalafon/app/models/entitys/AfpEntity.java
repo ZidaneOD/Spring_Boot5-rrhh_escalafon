@@ -1,7 +1,10 @@
 package com.escalafon.proyecto_escalafon.app.models.entitys;
 
 import java.io.Serializable;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
