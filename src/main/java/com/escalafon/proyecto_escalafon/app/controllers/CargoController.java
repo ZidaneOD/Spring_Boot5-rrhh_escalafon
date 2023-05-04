@@ -37,7 +37,7 @@ public class CargoController {
                 cargoService.save(cargo));
     }
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<CargoResquest> updateDoctor(@PathVariable Integer id, @Valid @RequestBody CargoResquest cargoResquest){
+    public Response<CargoResquest> updateCargo(@PathVariable Integer id, @Valid @RequestBody CargoResquest cargoResquest){
         return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "USUARIO ID: "+id+" SUCCESSFULLY UPDATED",
                 cargoService.updateCargo(id, cargoResquest));
     }
