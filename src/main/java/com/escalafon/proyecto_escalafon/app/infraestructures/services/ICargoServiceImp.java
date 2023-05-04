@@ -34,7 +34,7 @@ public class ICargoServiceImp implements ICargoService {
         try {
 
             CargoEntity CargoEntity = convertToEntity(cargoResquest);
-            CargoEntity.setEstado(true);
+            //CargoEntity.setEstado(true);
 
             CargoEntity savedCargo = cargoDao.save(CargoEntity);
             return convertToResquest(savedCargo);
