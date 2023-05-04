@@ -5,7 +5,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -25,16 +24,9 @@ public class RegimenPensionEntity implements Serializable{
     private String nombreRegimen;
     @NonNull
     private Boolean estado;
-    //El error fue la relación de huayta,
-    //seria así
-    /*
+
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "id_afp",referencedColumnName = "id_afp")
     private AfpEntity afps;
-    */
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_regimen")
-    private List<AfpEntity> afpEntityList;
     private static final long serialVersionUID = 1L;
 }

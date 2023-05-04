@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,13 +25,9 @@ public class AfpEntity implements Serializable{
     @NotNull
     private Boolean estado;
 
-    /* Asi seria
+    
+    @NotNull
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "afps")
     private List<RegimenPensionEntity> regimenPensionEntityList;
-    */
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_regimen")
-    private RegimenPensionEntity regimenPensiones;
 
 }
