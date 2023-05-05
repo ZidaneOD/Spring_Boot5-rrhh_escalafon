@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "api/login")
 public class AuthController {
-    @Autowired
-    @Qualifier("IUsuarioServiceImp")
-    private IUsuarioService usuarioService;
+    private final IUsuarioService usuarioService;
 
-    @Autowired
-    @Qualifier("JWTUtils")
-    private JWTUtils jwtUtils;
+    private final JWTUtils jwtUtils;
+
+    public AuthController(@Qualifier("IUsuarioServiceImp") IUsuarioService usuarioService, @Qualifier("JWTUtils") JWTUtils jwtUtils) {
+        this.usuarioService = usuarioService;
+        this.jwtUtils = jwtUtils;
+    }
 
     @PostMapping("")
     public String login(@RequestBody UsuarioResquest usuario) {

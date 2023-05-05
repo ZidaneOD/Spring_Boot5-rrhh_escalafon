@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "cargousuarios")
@@ -22,6 +24,5 @@ public class CargoEntity implements Serializable {
     @Column(name = "tipo_cargo")
     private String tipoCargo;
     private Boolean estado;
-
     private static final long serialVersionUID = 1L;
 }
