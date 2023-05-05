@@ -45,7 +45,7 @@ public class UsuarioEntity implements Serializable {
     @Column(name = "pass",length = 200)
     private String pass;
     private boolean estado;
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "id_cargo",referencedColumnName = "id_cargo")
     private CargoEntity cargoEntity;
 
