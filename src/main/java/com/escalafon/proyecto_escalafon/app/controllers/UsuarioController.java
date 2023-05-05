@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@SessionAttributes("usuario")
 @RequestMapping(path = "api/usuario")
 public class UsuarioController {
     @Autowired
@@ -37,7 +36,7 @@ public class UsuarioController {
                 usuarioService.save(usuario));
     }
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<UsuarioResquest> updateDoctor(@PathVariable Integer id, @Valid @RequestBody UsuarioResquest usuarioResquest){
+    public Response<UsuarioResquest> updateUsuario(@PathVariable Integer id, @Valid @RequestBody UsuarioResquest usuarioResquest){
         return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK), "CARGO ID: "+id+" SUCCESSFULLY UPDATED",
                 usuarioService.updateUsuario(id, usuarioResquest));
     }

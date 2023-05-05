@@ -5,10 +5,11 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -17,7 +18,7 @@ import java.util.List;
 public class UsuarioEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario",length = 6)
+    @Column(name = "id_usuario")
     private Integer id;
     @NotEmpty
     @Column(name = "nombres",length = 50)
@@ -35,18 +36,17 @@ public class UsuarioEntity implements Serializable {
     private Date fechaNaci;
     @NotEmpty
     @Email
-    @Column(length = 150)
+    @Column(name = "correo",length = 150)
     private String correo;
-    @NotBlank
-    @Column(length = 100)
+    @NotEmpty
+    @Column(name = "login",length = 100)
     private String login;
     @NotEmpty
+    @Column(name = "pass",length = 200)
     private String pass;
-    @NotNull
     private boolean estado;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cargo")
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "id_cargo",referencedColumnName = "id_cargo")
     private CargoEntity cargoEntity;
 
     private static final long serialVersionUID = 1L;

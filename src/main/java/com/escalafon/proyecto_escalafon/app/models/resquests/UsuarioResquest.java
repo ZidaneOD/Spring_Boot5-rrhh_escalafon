@@ -12,7 +12,7 @@ import java.util.Date;
 public class UsuarioResquest {
     @JsonProperty("id")
     private Integer idUsuario;
-    @JsonProperty("nombre")
+    @JsonProperty("nombres")
     private String nombre;
     @JsonProperty("apellidoPat")
     private String apellidoPat;
