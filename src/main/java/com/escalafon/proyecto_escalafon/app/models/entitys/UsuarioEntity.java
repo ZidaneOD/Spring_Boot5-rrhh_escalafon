@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -19,7 +20,6 @@ public class UsuarioEntity implements Serializable {
     @Column(name = "id_usuario",length = 6)
     private Integer id;
     @NotEmpty
-    @Max(50)
     @Column(name = "nombres",length = 50)
     private String nombre;
     @NotEmpty
@@ -42,9 +42,10 @@ public class UsuarioEntity implements Serializable {
     private String login;
     @NotEmpty
     private String pass;
+    @NotNull
     private boolean estado;
-    private boolean pruebaramas;
-    @OneToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cargo")
     private CargoEntity cargoEntity;
 
