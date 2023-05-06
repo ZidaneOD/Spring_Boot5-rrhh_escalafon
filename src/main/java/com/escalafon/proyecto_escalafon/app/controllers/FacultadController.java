@@ -54,7 +54,6 @@ public class FacultadController {
         return new Response<>("DELETED", String.valueOf(HttpStatus.NO_CONTENT), "FACULTAD ID: "+id+" SUCCESSFULLY DELETED");
     }
 
-    //ESCUELASSSSSS
     @GetMapping(value = "/escuela")
     public Response<List<EscuelaResquest>>getEscuelas(){
         return new Response<>("SUCCESS", String.valueOf(HttpStatus.OK),"ESCUELA SUCCESSFULLY READED",
