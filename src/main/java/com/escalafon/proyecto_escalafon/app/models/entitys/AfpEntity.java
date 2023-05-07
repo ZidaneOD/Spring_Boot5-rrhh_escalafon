@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,9 @@ import lombok.Setter;
 @Table(name = "afps")
 @Getter @Setter
 public class AfpEntity implements Serializable{
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_afp",nullable = false)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "id_afp",nullable = false)
     private Integer idAFP;
     @NotEmpty
     @Max(150)
@@ -23,10 +25,6 @@ public class AfpEntity implements Serializable{
     private String nombreAFP;
     @NotNull
     private Boolean estado;
-
-    
-    @NotNull
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "afps")
-    private List<RegimenPensionEntity> regimenPensionEntityList;
+    private static final long serialVersionUID = 1L;
 
 }
