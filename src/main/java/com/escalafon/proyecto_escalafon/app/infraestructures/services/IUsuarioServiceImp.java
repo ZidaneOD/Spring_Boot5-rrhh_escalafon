@@ -100,7 +100,10 @@ public class IUsuarioServiceImp implements IUsuarioService {
             usuarioEntity.setFechaNaci(usuarioResquest.getFechaNaci());
             usuarioEntity.setCorreo(usuarioResquest.getCorreo());
             usuarioEntity.setLogin(usuarioResquest.getLogin());
-            usuarioEntity.setPass(usuarioResquest.getPass());
+
+            Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+            String hash = argon2.hash(1, 1024, 1, usuarioResquest.getPass());
+            usuarioEntity.setPass(hash);
 
             CargoEntity cargoEntity = cargoDao.findById(usuarioResquest.getCargoEntity().getId()).orElseThrow();
 
