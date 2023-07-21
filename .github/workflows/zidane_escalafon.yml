@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'escalafon'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E47673AB1B7F4820A2AF01F4B3F8FB8E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FC4C1A3223394F428B73CF5F4682F0E3 }}
           package: '*.jar'
