@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class RegimenPensionResquest {
@@ -14,5 +16,5 @@ public class RegimenPensionResquest {
     @JsonProperty("nombreRegimen")
     private String nombreRegimen;
     @JsonProperty("afp")
-    private AfpEntity afp;
+    private List<AfpEntity> afp;
 }

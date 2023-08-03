@@ -3,8 +3,10 @@ package com.escalafon.proyecto_escalafon.app.models.entitys;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.NonNull;
@@ -25,8 +27,8 @@ public class RegimenPensionEntity implements Serializable{
     @NonNull
     private Boolean estado;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "id_afp",referencedColumnName = "id_afp")
-    private AfpEntity afps;
+    @NotNull
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "regimenPensionEntityList")
+    private List<AfpEntity> afps;
     private static final long serialVersionUID = 1L;
 }
