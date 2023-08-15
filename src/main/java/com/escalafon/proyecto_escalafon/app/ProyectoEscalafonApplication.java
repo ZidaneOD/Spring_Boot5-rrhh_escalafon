@@ -13,11 +13,11 @@ public class ProyectoEscalafonApplication {
         SpringApplication.run(ProyectoEscalafonApplication.class, args);
     }
     @Bean
-    public WebMvcConfigurer configurer(){
+    public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("*");
+                registry.addMapping("api/**").allowedOrigins("*");
             }
         };
     }
