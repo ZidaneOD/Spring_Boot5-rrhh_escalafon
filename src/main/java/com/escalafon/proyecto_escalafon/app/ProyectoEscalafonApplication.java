@@ -12,7 +12,7 @@ public class ProyectoEscalafonApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProyectoEscalafonApplication.class, args);
     }
-    @Bean
+    /*@Bean
     public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
             @Override
@@ -20,6 +20,6 @@ public class ProyectoEscalafonApplication {
                 registry.addMapping("api/**").allowedOrigins("*");
             }
         };
-    }
+    }*/
 
 }
