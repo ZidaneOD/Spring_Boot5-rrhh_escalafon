@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/usuario")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class UsuarioController {
     @Autowired
     @Qualifier(value = "IUsuarioServiceImp")
